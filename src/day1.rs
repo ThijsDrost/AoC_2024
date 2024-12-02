@@ -1,7 +1,7 @@
 use std::fs;
 
 pub fn day1() {
-    let values = fs::read_to_string("inputs/day1.txt").unwrap();
+    let values = fs::read_to_string(r"C:\Users\drost\RustroverProjects\AoC_2024\inputs\day1_sample.txt").unwrap();
     let (mut vec1, mut vec2): (Vec<i32>, Vec<i32>) = values.lines()
         .filter_map(|line| line.split_once("   "))
         .filter_map(|(first, second)| {
