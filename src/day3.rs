@@ -25,6 +25,6 @@ pub fn day3() {
             total2 += value1 * value2;
         }
     }
-    println!("Total: {}", total);
-    println!("Total 2: {}", total2);
+    println!("Day 3, part 1: {}", total);
+    println!("Day 3, part 2: {}", total2);
 }
