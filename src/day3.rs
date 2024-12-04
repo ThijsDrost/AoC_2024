@@ -1,8 +1,8 @@
 use std::fs;
 use regex::Regex;
 
-pub fn day3() {
-    let values = fs::read_to_string(r"C:\Users\drost\RustroverProjects\AoC\inputs\day3.txt").unwrap();
+pub fn day3(base_path: &str) {
+    let values = fs::read_to_string(base_path.to_owned() + r"\inputs\day3_sample.txt").unwrap();
     let matcher = Regex::new(r"mul\(([0-9]{1,3}),([0-9]{1,3})\)|(don't\(\))|(do\(\))").unwrap();
     let mut total = 0;
     let mut total2 = 0;

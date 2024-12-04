@@ -22,8 +22,8 @@ fn tester(values: &Vec<i32>) -> Option<usize>{
     None
 }
 
-pub fn day2(){
-    let values = fs::read_to_string(r"C:\Users\drost\RustroverProjects\AoC\inputs\day2_sample.txt").unwrap();
+pub fn day2(base_path: &str){
+    let values = fs::read_to_string(base_path.to_owned() + r"\inputs\day2_sample.txt").unwrap();
     let values: Vec<Vec<i32>> = values.lines().map(|line | {
             line.split_whitespace().map(|x| x.parse::<i32>().unwrap()).collect::<Vec<i32>>()
         })
