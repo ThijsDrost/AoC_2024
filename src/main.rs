@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let base_path = r"C:\Users\drost\RustroverProjects\AoC_2024";
@@ -9,4 +10,5 @@ fn main() {
     day2::day2(base_path);
     day3::day3(base_path);
     day4::day4(base_path);
+    day5::day5(base_path);
 }
