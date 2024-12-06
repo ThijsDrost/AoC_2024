@@ -1,7 +1,14 @@
 use std::fs;
 
-pub fn day4(base_path: &str) {
-    let values = fs::read_to_string(base_path.to_owned() + r"\inputs\day4_sample.txt").unwrap();
+pub fn day4(base_path: &str, real: bool) {
+    let path: String = {
+        if real {
+            base_path.to_owned() + r"\inputs\day4.txt"
+        } else {
+            base_path.to_owned() + r"\inputs\day4_sample.txt"
+        }
+    };
+    let values = fs::read_to_string(&path).unwrap();
     let values = values.lines()
         .map(|l| l.chars().map(|c|
             match c {

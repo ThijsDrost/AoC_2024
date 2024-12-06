@@ -1,8 +1,15 @@
 use std::fs;
 use std::collections::HashMap;
 
-pub fn day5(base_path: &str) {
-    let values = fs::read_to_string(base_path.to_owned() + r"\inputs\day5_sample.txt").unwrap();
+pub fn day5(base_path: &str, real: bool) {
+    let path: String = {
+        if real {
+            base_path.to_owned() + r"\inputs\day5.txt"
+        } else {
+            base_path.to_owned() + r"\inputs\day5_sample.txt"
+        }
+    };
+    let values = fs::read_to_string(&path).unwrap();
     let mut mappert = HashMap::<i32, Vec<i32>>::new();
     let mut first = true;
     let mut total = 0;

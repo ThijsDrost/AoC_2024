@@ -1,7 +1,14 @@
 use std::fs;
 
-pub fn day1(base_path: &str) {
-    let values = fs::read_to_string(base_path.to_owned() + r"\inputs\day1_sample.txt").unwrap();
+pub fn day1(base_path: &str, real: bool) {
+    let path: String = {
+        if real {
+            base_path.to_owned() + r"\inputs\day1.txt"
+        } else {
+            base_path.to_owned() + r"\inputs\day1_sample.txt"
+        }
+    };
+    let values = fs::read_to_string(&path).unwrap();
     let (mut vec1, mut vec2): (Vec<i32>, Vec<i32>) = values.lines()
         .filter_map(|line| line.split_once("   "))
         .filter_map(|(first, second)| {
