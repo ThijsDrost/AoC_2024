@@ -1,5 +1,6 @@
 use std::fs;
 use std::collections::HashSet;
+use rayon::prelude::*;
 
 
 pub fn check_loop(start_position: (usize, usize), block_position: (usize, usize), obstacle_map: Vec<Vec<bool>>) -> Option<()> {
@@ -77,8 +78,9 @@ pub fn day6(base_path: &str, real: bool) -> (i32, i32) {
     }
 
     // Put an obstacle on each visited location and test whether a loop is formed
-    let total = visited.iter().filter_map(
+    let total = visited.clone().par_iter().filter_map(
         |x| check_loop(start_position, *x, obstacle_map.clone())
     ).count();
+
     (visited.len() as i32, total as i32)
 }
