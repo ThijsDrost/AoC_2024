@@ -1,7 +1,7 @@
 use std::fs;
 use std::collections::HashMap;
 
-pub fn day5(base_path: &str, real: bool) {
+pub fn day5(base_path: &str, real: bool) -> (i32, i32) {
     let path: String = {
         if real {
             base_path.to_owned() + r"\inputs\day5.txt"
@@ -57,6 +57,5 @@ pub fn day5(base_path: &str, real: bool) {
             }
         }
     }
-    println!("Day 5, part 1: {}", total);
-    println!("Day 5, part 2: {}", total2);
+    (total, total2)
 }

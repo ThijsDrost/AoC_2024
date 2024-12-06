@@ -22,7 +22,7 @@ fn tester(values: &Vec<i32>) -> Option<usize>{
     None
 }
 
-pub fn day2(base_path: &str, real: bool) {
+pub fn day2(base_path: &str, real: bool) -> (i32, i32) {
     let path: String = {
         if real {
             base_path.to_owned() + r"\inputs\day2.txt"
@@ -42,9 +42,8 @@ pub fn day2(base_path: &str, real: bool) {
             }
             return Some(1)
         }).sum();
-    println!("Day 2, part 1: {}", res);
 
-    let res: i32 = values.iter()
+    let res2: i32 = values.iter()
         .filter_map(|values | {
             if let Some(index) = tester(values) {
                 if index == 1 {
@@ -64,5 +63,5 @@ pub fn day2(base_path: &str, real: bool) {
             }
             return Some(1)
         }).sum();
-    println!("Day 2, part 2: {}", res);
+    (res, res2)
 }

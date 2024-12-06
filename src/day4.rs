@@ -1,6 +1,6 @@
 use std::fs;
 
-pub fn day4(base_path: &str, real: bool) {
+pub fn day4(base_path: &str, real: bool) -> (i32, i32) {
     let path: String = {
         if real {
             base_path.to_owned() + r"\inputs\day4.txt"
@@ -55,7 +55,5 @@ pub fn day4(base_path: &str, real: bool) {
             }
         }
     }
-
-    println!("Day 4 part 1: {}", total);
-    println!("Day 4 part 2: {}", total2);
+    (total, total2)
 }

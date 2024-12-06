@@ -1,6 +1,6 @@
 use std::fs;
 
-pub fn day1(base_path: &str, real: bool) {
+pub fn day1(base_path: &str, real: bool) -> (i32, i32) {
     let path: String = {
         if real {
             base_path.to_owned() + r"\inputs\day1.txt"
@@ -25,7 +25,6 @@ pub fn day1(base_path: &str, real: bool) {
         .zip(vec2.iter())
         .map(|(x, y)| (x - y).abs())
         .sum();
-    println!("Day 1, part 1: {}", sum);
 
     let mut index1 = 0;
     let mut index2 = 0;
@@ -53,5 +52,5 @@ pub fn day1(base_path: &str, real: bool) {
         num1 = 0;
         num2 = 1;
     }
-    println!("Day 1, part 2: {}", total);
+    (sum, total as i32)
 }

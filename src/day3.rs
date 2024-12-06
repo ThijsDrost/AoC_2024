@@ -1,7 +1,7 @@
 use std::fs;
 use regex::Regex;
 
-pub fn day3(base_path: &str, real: bool) {
+pub fn day3(base_path: &str, real: bool) -> (i32, i32) {
     let path: String = {
         if real {
             base_path.to_owned() + r"\inputs\day3.txt"
@@ -32,6 +32,5 @@ pub fn day3(base_path: &str, real: bool) {
             total2 += value1 * value2;
         }
     }
-    println!("Day 3, part 1: {}", total);
-    println!("Day 3, part 2: {}", total2);
+    (total, total2)
 }

@@ -7,11 +7,11 @@ mod day4;
 mod day5;
 mod day6;
 
-pub fn time_func(function: fn(&str, bool), base_path: &str, day: u8, real: bool) {
+pub fn time_func(function: fn(&str, bool) -> (i32, i32), base_path: &str, day: u8, real: bool) {
     let start = Instant::now();
-    function(base_path, real);
+    let result = function(base_path, real);
     let duration = start.elapsed();
-    println!("Day {:?} took {:?}", day, duration);
+    println!("Day {:?} part1: {:?}, part 2: {:?}, it took {:?}", day, result.0, result.1, duration);
 }
 
 

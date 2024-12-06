@@ -28,7 +28,7 @@ pub fn check_loop(start_position: (usize, usize), block_position: (usize, usize)
 }
 
 
-pub fn day6(base_path: &str, real: bool) {
+pub fn day6(base_path: &str, real: bool) -> (i32, i32) {
     let path: String = {
         if real {
             base_path.to_owned() + r"\inputs\day6.txt"
@@ -75,11 +75,10 @@ pub fn day6(base_path: &str, real: bool) {
         }
         break 'outer;
     }
-    println!("Day 5, part 1: {}", visited.len());
 
     // Put an obstacle on each visited location and test whether a loop is formed
     let total = visited.iter().filter_map(
         |x| check_loop(start_position, *x, obstacle_map.clone())
     ).count();
-    println!("Day 5, part 2: {}", total);
+    (visited.len() as i32, total as i32)
 }
