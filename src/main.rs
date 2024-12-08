@@ -8,8 +8,9 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
-pub fn time_func<T: Debug>(function: fn(&str, bool) -> (T, T), base_path: &str, day: u8, real: bool) {
+pub fn time_func<T: Debug, S: Debug>(function: fn(&str, bool) -> (T, S), base_path: &str, day: u8, real: bool) {
     let start = Instant::now();
     let result = function(base_path, real);
     let duration = start.elapsed();
@@ -27,5 +28,6 @@ fn main() {
     time_func(day5::day5, base_path, 5, true);
     time_func(day6::day6, base_path, 6, true);
     time_func(day7::day7, base_path, 7, true);
+    time_func(day8::day8, base_path, 8, true);
     println!("Total time: {:?}", start.elapsed());
 }
