@@ -1,11 +1,12 @@
-use std::collections::{HashSet, VecDeque};
+use std::collections::VecDeque;
 use std::fs;
 use rayon::prelude::*;
+use rustc_hash::FxHashSet;
 
 pub fn solution(start: (usize, usize), map: &Vec<Vec<u32>>) -> (usize, usize) {
     let mut queue: VecDeque<(usize, usize, u32, bool)> = VecDeque::new();
     queue.push_back((start.0, start.1, 0, true));
-    let mut been: HashSet<(i32, i32)> = HashSet::new();
+    let mut been: FxHashSet<(i32, i32)> = FxHashSet::default();
     let mut values = 0;
     let mut values2 = 0;
     while queue.len() != 0 {

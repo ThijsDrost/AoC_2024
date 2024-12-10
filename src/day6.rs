@@ -1,11 +1,11 @@
 use std::fs;
-use std::collections::HashSet;
 use rayon::prelude::*;
+use rustc_hash::FxHashSet;
 
 
 pub fn check_loop(start_position: (usize, usize), block_position: (usize, usize), obstacle_map: Vec<Vec<bool>>) -> Option<()> {
     let mut position = start_position.clone();
-    let mut been: HashSet<(usize, usize, i32, i32)> = HashSet::new();
+    let mut been: FxHashSet<(usize, usize, i32, i32)> = FxHashSet::default();
     let mut direction: (i32, i32) = (-1, 0);
     let mut this_obstacle_map = obstacle_map.clone();
     this_obstacle_map[block_position.0][block_position.1] = false;
@@ -57,8 +57,8 @@ pub fn day6(base_path: &str, real: bool) -> (i32, i32) {
         ).collect::<Vec<Vec<bool>>>();
 
     let mut position = start_position.clone();
-    let mut been: HashSet<(usize, usize)> = HashSet::new();
-    let mut visited: HashSet<(usize, usize)> = HashSet::new();
+    let mut been: FxHashSet<(usize, usize)> = FxHashSet::default();
+    let mut visited: FxHashSet<(usize, usize)> = FxHashSet::default();
     let mut direction = (-1, 0);
     'outer: loop {
         been.insert(position);

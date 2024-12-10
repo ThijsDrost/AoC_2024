@@ -1,5 +1,5 @@
 use std::fs;
-use std::collections::{HashSet, HashMap};
+use rustc_hash::{FxHashMap, FxHashSet};
 
 pub fn day8(base_path: &str, real: bool) -> (usize, usize) {
     let path: String = {
@@ -14,7 +14,7 @@ pub fn day8(base_path: &str, real: bool) -> (usize, usize) {
     let height = mappert.len();
     let width = mappert[0].len();
 
-    let mut antennas: HashMap<char, Vec<(usize, usize)>> = HashMap::new();
+    let mut antennas: FxHashMap<char, Vec<(usize, usize)>> = FxHashMap::default();
 
 
     for (i1, line) in mappert.into_iter().enumerate() {
@@ -29,7 +29,7 @@ pub fn day8(base_path: &str, real: bool) -> (usize, usize) {
             }
         }
     }
-    let mut places: HashSet<(usize, usize)> = HashSet::new();
+    let mut places: FxHashSet<(usize, usize)> = FxHashSet::default();
     for key in antennas.keys() {
         let vec = antennas.get(key).unwrap();
         for i1 in 0..(vec.len() - 1) {
@@ -49,8 +49,8 @@ pub fn day8(base_path: &str, real: bool) -> (usize, usize) {
     }
 
     #[inline]
-    fn harmonic_inserter(mut location: (i32, i32), diff: (i32, i32), mut set: HashSet<(usize, usize)>, width: i32, height: i32)
-                         -> HashSet<(usize, usize)> {
+    fn harmonic_inserter(mut location: (i32, i32), diff: (i32, i32), mut set: FxHashSet<(usize, usize)>, width: i32, height: i32)
+                         -> FxHashSet<(usize, usize)> {
         while 0 <= location.0 && location.0 < height && 0 <= location.1 && location.1 < width {
             set.insert((location.0 as usize, location.1 as usize));
             location = (location.0 + diff.0, location.1 + diff.1);
@@ -58,7 +58,7 @@ pub fn day8(base_path: &str, real: bool) -> (usize, usize) {
         set
     }
 
-    let mut harmonic_places: HashSet<(usize, usize)> = HashSet::new();
+    let mut harmonic_places: FxHashSet<(usize, usize)> = FxHashSet::default();
     for key in antennas.keys() {
         let vec = antennas.get(key).unwrap();
         for i1 in 0..(vec.len() - 1) {
