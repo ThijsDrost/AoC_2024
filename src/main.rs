@@ -25,17 +25,17 @@ pub fn time_func<T: Debug, S: Debug>(function: fn(&str, bool) -> (T, S), base_pa
 fn main() {
     let base_path = r"C:\Users\drost\RustroverProjects\AoC_2024";
     let start = Instant::now();
-    time_func(day1::day1, base_path, 1, false);
-    time_func(day2::day2, base_path, 2, false);
-    time_func(day3::day3, base_path, 3, false);
-    time_func(day4::day4, base_path, 4, false);
-    time_func(day5::day5, base_path, 5, false);
-    time_func(day6::day6, base_path, 6, false);
-    time_func(day7::day7, base_path, 7, false);
-    time_func(day8::day8, base_path, 8, false);
-    time_func(day9::day9, base_path, 9, false);
-    time_func(day10::day10, base_path, 10, false);
-    time_func(day11::day11, base_path, 11, false);
+    time_func(day1::day1, base_path, 1, true);
+    time_func(day2::day2, base_path, 2, true);
+    time_func(day3::day3, base_path, 3, true);
+    time_func(day4::day4, base_path, 4, true);
+    time_func(day5::day5, base_path, 5, true);
+    time_func(day6::day6, base_path, 6, true);
+    time_func(day7::day7, base_path, 7, true);
+    time_func(day8::day8, base_path, 8, true);
+    time_func(day9::day9, base_path, 9, true);
+    time_func(day10::day10, base_path, 10, true);
+    time_func(day11::day11, base_path, 11, true);
     time_func(day12::day12, base_path, 12, true);
     println!("Total time: {:?}", start.elapsed());
 }
