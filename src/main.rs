@@ -15,6 +15,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 
 pub fn time_func<T: Debug, S: Debug>(function: fn(&str, bool) -> (T, S), base_path: &str, day: u8, real: bool) {
     let start = Instant::now();
@@ -41,5 +42,6 @@ fn main() {
     time_func(day12::day12, base_path, 12, true);
     time_func(day13::day13, base_path, 13, true);
     time_func(day14::day14, base_path, 14, true);
+    time_func(day15::day15, base_path, 15, true);
     println!("Total time: {:?}", start.elapsed());
 }
